@@ -5,8 +5,8 @@ import './app.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Root from './components/Root';
 
-ReactDOM.render(
-    <h1>React is working!</h1>,
-    document.getElementById('root')
-);
+const root = document.getElementById('root');
+
+ReactDOM.render(<Root/>, root);

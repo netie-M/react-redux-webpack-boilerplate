@@ -1,15 +1,15 @@
 //css
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/main.css';
-import './styles/sb-admin-2.css';
-import './styles/timeline.css';
+import './client/styles/sb-admin-2.css';
+import './client/styles/timeline.css';
 
 //vendor
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Root from './components/Root';
-import testRedux from './redux/redux';
+import Root from './client/components/Root';
+import testRedux from './client/redux/redux';
 
 const root = document.getElementById('root');
 

@@ -18,9 +18,9 @@ export default class Root extends React.Component{
                 <Header/>
                 <HashRouter>
                     <div id="page-wrapper" style={style}>
-                            <Route exact path="/" component={Dashboard}/>
-                            <Route path="/forms" component={Forms}/>
-                            <Route path="/tables" component={Tables}/>
+                        <Route exact path="/" component={Dashboard}/>
+                        <Route path="/forms" component={Forms}/>
+                        <Route path="/tables" component={Tables}/>
                     </div>
                 </HashRouter>
             </div>

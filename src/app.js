@@ -1,5 +1,5 @@
 //css
-import './app.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import './styles/main.css';
 import './styles/sb-admin-2.css';
 import './styles/timeline.css';

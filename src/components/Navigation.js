@@ -1,9 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import Dashboard from '../pages/Dashboard';
-import Forms from '../pages/Forms';
-import Tables from '../pages/Tables';
+import { HashRouter, Link } from 'react-router-dom';
 
 export default class Navigation extends React.Component{
     constructor(){
@@ -11,21 +7,17 @@ export default class Navigation extends React.Component{
     }
     render(){
         return(
-            <Router>
-                <div>
-                    <ul>
-                        <li><Link to="/">Dashboard</Link></li>
-                        <li><Link to="/forms">Forms</Link></li>
-                        <li><Link to="/tables">Tables</Link></li>
-                    </ul>
-
-                    <hr/>
-
-                    <Route exact path="/" component={Dashboard}/>
-                    <Route path="/forms" component={Forms}/>
-                    <Route path="/tables" component={Tables}/>
+            <div className="navbar-default sidebar" role="navigation">
+                <div className="sidebar-nav navbar-collapse">
+                    <HashRouter>
+                        <ul className="nav in" id="side-menu">
+                            <li><Link to="/">Dashboard</Link></li>
+                            <li><Link to="/forms">Forms</Link></li>
+                            <li><Link to="/tables">Tables</Link></li>
+                        </ul>
+                    </HashRouter>
                 </div>
-            </Router>
+            </div>
         );
     }
 }

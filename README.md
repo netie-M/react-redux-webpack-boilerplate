@@ -8,6 +8,9 @@ install node
 
 $ npm install -g rimraf
 
+数据库使用mongodb，去官网进行安装和配置。
+mongodb GUI操作可以使用 robomongo。下载地址 https://robomongo.org/
+
 ### Install
 
 $ cd react-redux-webpack-boilerplate

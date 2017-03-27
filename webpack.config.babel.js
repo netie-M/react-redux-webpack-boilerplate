@@ -1,9 +1,10 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextWebpackPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
+import webpack from 'webpack';
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/client/app.js',
     output:{
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -40,13 +41,18 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'src/client/index.html',
             inject: true,
             hash: true
         }),
         new ExtractTextWebpackPlugin({
             filename: 'app.css',
             allChunks: true
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         })
     ]
 };

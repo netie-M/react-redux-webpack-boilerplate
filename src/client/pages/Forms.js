@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Dialog from '../components/Dialog';
+
 export default class Forms extends React.Component{
     constructor(){
         super();
@@ -95,6 +97,14 @@ export default class Forms extends React.Component{
                                     </div>
                                     <button type="submit" className="btn btn-primary">提交</button>
                                 </form>
+                            </div>
+                        </div>
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                弹窗
+                            </div>
+                            <div className="panel-body">
+                                <Dialog/>
                             </div>
                         </div>
                     </div>

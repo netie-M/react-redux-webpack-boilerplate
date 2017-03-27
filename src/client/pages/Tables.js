@@ -1,12 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getDummyUser, getUsers} from '../actions/userActions';
+import {getDummyUser, getUsers ,insertUser} from '../actions/userActions';
 
 function mapStateToProps(store) {
     return {
         users: store.userReducer.users,
-        userFetched: store.userReducer.fetched
+        userLoaded: store.userReducer.read,
+        userCreated: store.userReducer.created,
+        userUpdated: store.userReducer.updated,
+        userDeleted: store.userReducer.deleted,
+        errors: store.userReducer.error,
+        message: store.userReducer.message
     }
 }
 
@@ -18,11 +23,16 @@ class Tables extends React.Component{
         //this.props.dispatch(getDummyUser());
         this.props.dispatch(getUsers());
     }
+
+    insertUser() {
+        this.props.dispatch(insertUser());
+    }
     render(){
         const users = this.props.users;
+        console.log(this.props);
         const mappedUsers = users.map(
-            user => <tr key={user.id}>
-                        <td>{user.id}</td>
+            user => <tr key={user._id}>
+                        <td>{user._id}</td>
                         <td>{user.fullname}</td>
                         <td>{user.gender}</td>
                         <td>{user.age}</td>
@@ -55,6 +65,7 @@ class Tables extends React.Component{
                                        <tbody>{mappedUsers}</tbody>
                                    </table>
                                </div>
+                               <button className="btn btn-primary" onClick={this.insertUser.bind(this)}>添加</button>
                            </div>
                        </div>
                    </div>

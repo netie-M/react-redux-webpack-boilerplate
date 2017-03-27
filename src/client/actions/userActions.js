@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export function getUsers() {
     return function (dispatch) {
         dispatch({type: 'GET_USER_START'});
@@ -8,7 +9,23 @@ export function getUsers() {
                 dispatch({type: 'GET_USER_SUCCESSFUL' , payload: response.data});
             })
             .catch(function(error)  {
-                dispatch({type: 'GET_USER_ERROR' , payload: error});
+                dispatch({type: 'PROCESS_USER_ERROR' , payload: error});
+            });
+    }
+}
+
+export function insertUser() {
+    const testUser = {
+        fullname: 'react user',
+        gender: 'male',
+        age: 55
+    };
+    return function (dispatch) {
+        axios.post('http://localhost:8888/api/users' , {fullname: 'react user', gender: 'male',age: 55})
+            .then(function (response) {
+                dispatch({type: 'INSERT_USER_SUCCESSFUL' , payload: response.data});
+            }).catch(function (error) {
+                dispatch({type: 'PROCESS_USER_ERROR' , payload: error});
             });
     }
 }

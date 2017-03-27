@@ -1,16 +1,15 @@
 const initialState = {
     fetching: false,
-    fetched: false,
+    created: false,
+    read: false,
+    updated: false,
+    deleted: false,
     users: [],
-    error: null
+    error: null,
+    message: ''
 };
 
-export default function reducer(state = {
-    fetching: false,
-    fetched: false,
-    users: [],
-    error: null
-} , action) {
+export default function reducer(state = initialState, action) {
     switch (action.type) {
         case 'GET_USER_START': {
             console.log('get user start...');
@@ -19,20 +18,23 @@ export default function reducer(state = {
             });
         }
         case 'GET_USER_SUCCESSFUL': {
-            console.log('get user successful from action payload...');
-            console.log(action.payload);
+            console.log('get user successful');
             return Object.assign({}, state , {
-                fetched: true ,
+                read: true ,
                 fetching: false,
                 users: action.payload
             });
         }
-        case 'GET_USER_ERROR': {
-            console.log('get user error...');
-            console.log(action.payload);
+        case 'INSERT_USER_SUCCESSFUL': {
+            console.log('insert user successful');
+            return Object.assign({}, state , {
+                created: true,
+                message: action.payload
+            });
+        }
+        case 'PROCESS_USER_ERROR': {
+            console.log('process user error occurs');
             return Object.assign({} , state, {
-                fetched: false ,
-                fetching: false,
                 error: action.payload
             });
         }

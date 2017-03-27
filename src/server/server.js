@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import routes from './routes';
 import config from './config';
+import dbManager from './db/mongodb.manager';
 
 const app = express();
 const port = 8888;

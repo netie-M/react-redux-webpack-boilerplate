@@ -4,7 +4,7 @@ import axios from 'axios';
 export function getUsers() {
     return function (dispatch) {
         dispatch({type: 'GET_USER_START'});
-        axios.get('http://localhost:8888/api/users')
+        axios.get('http://localhost:8080/api/users')
             .then(function(response)  {
                 dispatch({type: 'GET_USER_SUCCESSFUL' , payload: response.data});
             })
@@ -16,7 +16,7 @@ export function getUsers() {
 
 export function insertUser(user) {
     return function (dispatch) {
-        axios.post('http://localhost:8888/api/users' , user)
+        axios.post('http://localhost:8080/api/users' , user)
             .then(function (response) {
                 dispatch({type: 'INSERT_USER_SUCCESSFUL' , payload: response.data});
             }).catch(function (error) {

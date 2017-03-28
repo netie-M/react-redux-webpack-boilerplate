@@ -4,10 +4,13 @@ import path from 'path';
 import webpack from 'webpack';
 
 module.exports = {
-    entry: './src/client/app.js',
+    entry: {
+        app: './src/client/app.js'
+    },
     output:{
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: '[name].js',
+        publicPath: '/',
     },
     module:{
         rules: [
@@ -34,11 +37,6 @@ module.exports = {
             }
         ]
     },
-    devServer: {
-        compress: true,
-        stats: 'errors-only',
-        open: true
-    },
     plugins:[
         new HtmlWebpackPlugin({
             template: 'src/client/index.html',
@@ -46,7 +44,7 @@ module.exports = {
             hash: true
         }),
         new ExtractTextWebpackPlugin({
-            filename: 'app.css',
+            filename: '[name].css',
             allChunks: true
         }),
         new webpack.ProvidePlugin({

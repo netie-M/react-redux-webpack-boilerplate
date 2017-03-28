@@ -16,5 +16,8 @@ mongodb GUI操作可以使用 robomongo。下载地址 https://robomongo.org/
 $ cd react-redux-webpack-boilerplate
 $ npm install
 
-### Run
-$ npm run dev
+### Run client
+$ npm run client
+
+### Run server
+$ npm run server

@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getDummyUser, getUsers ,insertUser} from '../actions/userActions';
+import {getDummyUser, getUsers} from '../actions/userActions';
+
+import InsertUserDialog from '../components/InsertUserDialog';
 
 function mapStateToProps(store) {
     return {
@@ -22,10 +24,6 @@ class Tables extends React.Component{
     componentWillMount(){
         //this.props.dispatch(getDummyUser());
         this.props.dispatch(getUsers());
-    }
-
-    insertUser() {
-        this.props.dispatch(insertUser());
     }
     render(){
         const users = this.props.users;
@@ -65,7 +63,7 @@ class Tables extends React.Component{
                                        <tbody>{mappedUsers}</tbody>
                                    </table>
                                </div>
-                               <button className="btn btn-primary" onClick={this.insertUser.bind(this)}>添加</button>
+                               <InsertUserDialog/>
                            </div>
                        </div>
                    </div>

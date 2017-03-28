@@ -14,14 +14,9 @@ export function getUsers() {
     }
 }
 
-export function insertUser() {
-    const testUser = {
-        fullname: 'react user',
-        gender: 'male',
-        age: 55
-    };
+export function insertUser(user) {
     return function (dispatch) {
-        axios.post('http://localhost:8888/api/users' , {fullname: 'react user', gender: 'male',age: 55})
+        axios.post('http://localhost:8888/api/users' , user)
             .then(function (response) {
                 dispatch({type: 'INSERT_USER_SUCCESSFUL' , payload: response.data});
             }).catch(function (error) {

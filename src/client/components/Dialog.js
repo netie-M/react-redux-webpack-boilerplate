@@ -7,7 +7,7 @@ export default class Dialog extends React.Component{
                 <button className="btn btn-primary btn-lg" data-toggle="modal" data-target="#dialogSample">
                     打开弹窗
                 </button>
-                <div className="modal fade" id="dialogSample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div className="modal fade" id="dialogSample" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
